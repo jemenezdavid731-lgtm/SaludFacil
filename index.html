@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="SaludFácil - Ecosistema integral de recordatorio de medicamentos, asistencia en emergencias y código QR médico dinámico. Prototipo presentado en el 15.º Encuentro Estatal de Robótica y Prototipos ICTI Michoacán.">
+    <title>SaludFácil - Ficha Técnica y Proyección | 15.º Encuentro ICTI</title>
+    <style>
+        :root {
+            --azul-principal: #1565C0;
+            --azul-claro: #E3F2FD;
+            --azul-oscuro: #0D47A1;
+            --verde-exito: #2E7D32;
+            --rojo-alerta: #C62828;
+            --texto-oscuro: #1E293B;
+            --texto-gris: #475569;
+            --fondo: #F8FAFC;
+            --blanco: #FFFFFF;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background-color: var(--fondo);
+            color: var(--texto-oscuro);
+            line-height: 1.6;
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--azul-principal), var(--azul-oscuro));
+            color: var(--blanco);
+            padding: 2.5rem 1.5rem;
+            text-align: center;
+            border-bottom-left-radius: 24px;
+            border-bottom-right-radius: 24px;
+            box-shadow: 0 4px 12px rgba(21, 101, 192, 0.2);
+        }
+
+        .badge {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.2);
+            padding: 0.35rem 0.9rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 0.8rem;
+            letter-spacing: 0.5px;
+        }
+
+        header h1 {
+            font-size: 2.3rem;
+            margin-bottom: 0.4rem;
+        }
+
+        header p {
+            font-size: 1.05rem;
+            opacity: 0.92;
+            max-width: 600px;
+            margin: 0 auto 1.6rem auto;
+        }
+
+        .btn-principal {
+            display: inline-block;
+            background-color: var(--blanco);
+            color: var(--azul-principal);
+            padding: 0.95rem 2rem;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.08rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            transition: transform 0.2s;
+        }
+
+        .btn-principal:hover {
+            transform: translateY(-2px);
+        }
+
+        .contenedor {
+            max-width: 850px;
+            margin: 0 auto;
+            padding: 1.5rem;
+        }
+
+        .tarjeta {
+            background: var(--blanco);
+            border-radius: 16px;
+            padding: 1.6rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            border: 1px solid #E2E8F0;
+        }
+
+        .tarjeta h2 {
+            color: var(--azul-principal);
+            font-size: 1.35rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .grid-funciones {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .item-funcion {
+            background: var(--azul-claro);
+            padding: 1.1rem;
+            border-radius: 12px;
+            border-left: 4px solid var(--azul-principal);
+        }
+
+        .item-funcion h3 {
+            font-size: 1.05rem;
+            color: var(--azul-oscuro);
+            margin-bottom: 0.3rem;
+        }
+
+        .item-funcion p {
+            font-size: 0.92rem;
+            color: var(--texto-gris);
+        }
+
+        /* Galería de imágenes */
+        .galeria {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .galeria img {
+            width: 100%;
+            border-radius: 12px;
+            border: 1px solid #CBD5E1;
+            object-fit: cover;
+        }
+
+        /* Línea de tiempo (Planes a futuro) */
+        .etapa {
+            border-left: 3px solid var(--azul-principal);
+            padding-left: 1.2rem;
+            margin-bottom: 1.2rem;
+            position: relative;
+        }
+
+        .etapa::before {
+            content: '';
+            width: 12px;
+            height: 12px;
+            background: var(--azul-principal);
+            border-radius: 50%;
+            position: absolute;
+            left: -7.5px;
+            top: 5px;
+        }
+
+        .etapa h3 {
+            font-size: 1.05rem;
+            color: var(--texto-oscuro);
+        }
+
+        .etapa span {
+            font-size: 0.82rem;
+            font-weight: 700;
+            color: var(--azul-principal);
+            text-transform: uppercase;
+        }
+
+        .aviso-medico {
+            background-color: #FEF2F2;
+            border: 1px solid #FECACA;
+            color: var(--rojo-alerta);
+            padding: 1rem;
+            border-radius: 12px;
+            font-size: 0.9rem;
+            margin-top: 1rem;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem 1rem;
+            color: var(--texto-gris);
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="badge">15.º Encuentro Estatal de Robótica y Prototipos • ICTI Michoacán</div>
+        <h1>SaludFácil</h1>
+        <p>Tu salud, en tus manos. Ecosistema integral de recordatorio de medicamentos, asistencia en emergencias y código QR médico dinámico.</p>
+        <a href="https://figma.site" target="_blank" class="btn-principal">Probar Prototipo Interactivo</a>
+    </header>
+
+    <div class="contenedor">
+
+        <!-- 1. Problema y Solución -->
+        <section class="tarjeta">
+            <h2>1. ¿Qué problema resuelve?</h2>
+            <p>En México, miles de adultos mayores y pacientes con enfermedades crónicas (como diabetes e hipertensión) sufren complicaciones por olvidar sus dosis o no contar con su historial médico accesible durante una emergencia. <strong>SaludFácil</strong> integra prevención, monitoreo familiar y respuesta rápida en una interfaz accesible guiada por voz.</p>
+        </section>
+
+        <!-- 2. Diferenciadores clave -->
+        <section class="tarjeta">
+            <h2>2. Funciones Principales e Innovación</h2>
+            <div class="grid-funciones">
+                <div class="item-funcion">
+                    <h3>Verificación Visual de Toma</h3>
+                    <p>Confirma mediante la cámara que el paciente tomó su medicamento y alerta automáticamente al familiar si no se registra a tiempo.</p>
+                </div>
+                <div class="item-funcion">
+                    <h3>Código QR Dinámico y WhatsApp</h3>
+                    <p>Genera un código QR en tiempo real con alergias y padecimientos (legible incluso sin internet) y permite compartir el expediente por WhatsApp.</p>
+                </div>
+                <div class="item-funcion">
+                    <h3>Escáner Guía de Heridas</h3>
+                    <p>Orienta con instrucciones por voz paso a paso en primeros auxilios (como quemaduras) y activa alertas de emergencia con ubicación.</p>
+                </div>
+                <div class="item-funcion">
+                    <h3>Accesibilidad Total</h3>
+                    <p>Botones amplios, alto contraste, acceso rápido sin registro obligatorio y lectura en voz alta pensada para adultos mayores.</p>
+                </div>
+            </div>
+            <div class="aviso-medico">
+                <strong>Nota ética y clínica:</strong> La herramienta de escaneo brinda orientación preventiva de primeros auxilios y seguimiento visual; no sustituye el diagnóstico ni la atención de un profesional de la salud.
+            </div>
+        </section>
+
+        <!-- 3. Capturas del Prototipo -->
+        <section class="tarjeta">
+            <h2>3. Interfaz del Prototipo</h2>
+            <p>Vistas principales diseñadas bajo principios de experiencia de usuario (UI/UX) centrados en la claridad y rapidez:</p>
+            <div class="galeria">
+                <!-- Reemplaza foto1.png, foto2.png y foto3.png por los nombres exactos de tus capturas -->
+                <img src="foto1.png" alt="Pantalla principal de SaludFácil">
+                <img src="foto2.png" alt="Escáner inteligente de heridas">
+                <img src="foto3.png" alt="Código QR médico dinámico">
+            </div>
+        </section>
+
+        <!-- 4. Arquitectura Técnica -->
+        <section class="tarjeta">
+            <h2>4. Arquitectura Tecnológica Proyectada</h2>
+            <p>El prototipo funcional actual valida la arquitectura de información, generación dinámica de códigos QR y flujos de usuario. Para su despliegue en producción se proyecta:</p>
+            <ul style="margin-left: 1.3rem; margin-top: 0.6rem; color: var(--texto-gris);">
+                <li><strong>Frontend Móvil:</strong> Desarrollo multiplataforma en <em>Flutter</em> o <em>React Native</em> (Android / iOS).</li>
+                <li><strong>Nube y Sincronización:</strong> Base de datos en tiempo real y notificaciones push mediante <em>Firebase</em>.</li>
+                <li><strong>Visión Artificial:</strong> Modelos ligeros de clasificación de imágenes con <em>TensorFlow Lite</em> para apoyo en detección de lesiones y verificación de tomas.</li>
+            </ul>
+        </section>
+
+        <!-- 5. Planes a futuro -->
+        <section class="tarjeta">
+            <h2>5. Hoja de Ruta y Planes a Futuro</h2>
+            <div class="etapa">
+                <span>Corto Plazo (1 - 3 meses)</span>
+                <h3>Desarrollo Beta y Pruebas Piloto</h3>
